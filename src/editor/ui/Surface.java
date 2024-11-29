@@ -1,13 +1,11 @@
 package editor.ui;
 
-import editor.model.StringStack;
 import model.Model;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.font.TextLayout;
-import java.text.AttributedCharacterIterator;
-import java.text.CharacterIterator;
+import java.text.AttributedString;
+import java.util.ArrayList;
 
 public class Surface extends JPanel {
     private Model model;
@@ -30,52 +28,14 @@ public class Surface extends JPanel {
 
         //model.applyAttributes(content);
 
-        //AttributedString content = new AttributedString(model.buildText());
         Font font = new Font("Segoe UI", Font.PLAIN, 106);
+        ArrayList<AttributedString> content = model.getContent(font);
 
-        //------------
-        //StringStack.StringStackCharacterIterator iter = model.getStringStack().getIterator();
-        //iter.setFont(font);
-        //------------
-
-        //TextLayout layout = new TextLayout(model.getStringStack().getIterator(), g2d.getFontRenderContext());
-
-        //layout.draw(g2d, 0, g.getFontMetrics().getAscent());
-
-//        char c;
-//
-//        while((c = iter.current()) != CharacterIterator.DONE){
-//            System.out.print("[" + c + "]");
-//            iter.next();
-//        }
-//        iter.first();
-//        System.out.println();
-//        while((c = iter.current()) != CharacterIterator.DONE){
-//            System.out.print("[" + c + "]");
-//            iter.next();
-//        }
-//        System.out.println();
-//
-//        int l = 0;
-//        while(iter.hasNextLine()){
-//            iter.nextLine();
-//            l++;
-//
-//            while((c = iter.current()) != CharacterIterator.DONE){
-//                //System.out.print("[" + c + "]");
-//                iter.next();
-//            }
-//        }
-
-
-        //------------------------------------------------------------
-//        g2d.drawString(iter, 0, g.getFontMetrics(font).getAscent());
-//        int l = 0;
-//        while(iter.hasNextLine()){
-//            iter.nextLine();
-//            l++;
-//            g2d.drawString(iter, 0, g.getFontMetrics(font).getAscent() + g.getFontMetrics(font).getHeight() * l);
-//        }
+        int l = 0;
+        for(AttributedString line : content){
+            g2d.drawString(line.getIterator(), 0, g.getFontMetrics(font).getAscent() + g.getFontMetrics(font).getHeight() * l);
+            l++;
+        }
 
     }
 

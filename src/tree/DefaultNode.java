@@ -1,18 +1,24 @@
 package tree;
 
-import editor.model.IStringStackElement;
-import editor.model.StringStackTerminal;
+import editor.model.TextCollection;
 
 import java.awt.*;
 
 public abstract class DefaultNode implements INode {
-    private static final INode ROOT = new DefaultNode() {
+    private static final INode ROOT = new DefaultNode(){
         @Override
-        public IStringStackElement createStringStack() {
-            return new StringStackTerminal("If you're seeing this please submit an issue report", Color.RED, this);
+        public void createText(TextCollection collection) {
+            collection.addText("<Please open an issue, an editor error has occurred!>", Color.RED, ROOT);
         }
     };
     INode parent = ROOT;
+
+    @Override
+    public TextCollection createText() {
+        TextCollection collection = new TextCollection();
+        createText(collection);
+        return collection;
+    }
 
     @Override
     public INode getParent() {
@@ -22,4 +28,6 @@ public abstract class DefaultNode implements INode {
     public boolean hasParent(){
         return parent == ROOT;
     }
+
+
 }

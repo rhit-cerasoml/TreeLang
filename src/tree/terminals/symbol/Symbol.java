@@ -1,7 +1,6 @@
 package tree.terminals.symbol;
 
-import editor.model.IStringStackElement;
-import editor.model.StringStackTerminal;
+import editor.model.TextCollection;
 import tree.DefaultNode;
 
 import java.awt.*;
@@ -13,7 +12,8 @@ public class Symbol extends DefaultNode implements ISymbol {
     }
 
     @Override
-    public IStringStackElement createStringStack() {
-        return new StringStackTerminal(name, Color.green, this);
+
+    public void createText(TextCollection collection) {
+        collection.addText(name, Color.green, this);
     }
 }

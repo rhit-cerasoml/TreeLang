@@ -1,8 +1,6 @@
 package tree.contructs;
 
-import editor.model.IStringStackElement;
-import editor.model.StringStack;
-import editor.model.StringStackTerminal;
+import editor.model.TextCollection;
 import tree.*;
 import tree.terminals.symbol.ISymbol;
 import tree.terminals.symbol.IncompleteSymbol;
@@ -17,13 +15,11 @@ public class Assignment extends DefaultNode implements INode {
     IValue RHS;
 
     @Override
-    public IStringStackElement createStringStack() {
-        StringStack ss = new StringStack();
-        ss.add(LHS.createStringStack());
-        ss.add(new StringStackTerminal(" = ", Color.GRAY, this));
-        ss.add(RHS.createStringStack());
-        ss.add("\n", this);
-        return ss;
+    public void createText(TextCollection collection) {
+        collection.addText(LHS);
+        collection.addText(" = ", Color.GRAY, this);
+        collection.addText(RHS);
+        collection.addText("\n", this);
     }
 
     public Assignment(){

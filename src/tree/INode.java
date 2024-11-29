@@ -1,10 +1,11 @@
 package tree;
 
-import editor.model.IStringStackElement;
+import editor.model.TextCollection;
 
 public interface INode {
 
-    IStringStackElement createStringStack();
+    TextCollection createText();
+    void createText(TextCollection collection);
     INode getParent();
     boolean hasParent();
 

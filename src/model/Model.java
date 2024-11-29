@@ -1,11 +1,11 @@
 package model;
 
-import editor.model.IStringStackElement;
-import editor.model.StringStack;
+import editor.model.TextCollection;
 import model.type.Type;
 import tree.INode;
 import treemodel.Primitives;
 
+import java.awt.*;
 import java.text.AttributedString;
 import java.util.ArrayList;
 
@@ -22,15 +22,15 @@ public class Model {
         this.root = root;
     }
 
-    public String buildText(){
-        return root.createStringStack().toString();
+    @Override
+    public String toString(){
+        return root.createText().toString();
     }
-//
-//    public void applyAttributes(AttributedString content){
-//        root.createStringStack().applyAttributes(content);
-//    }
 
-    public IStringStackElement getStringStack(){
-        return root.createStringStack();
+    public ArrayList<AttributedString> getContent(Font font){
+        TextCollection textCollection = root.createText();
+        textCollection.setFont(font);
+        return textCollection.getAttributedStrings();
     }
+
 }

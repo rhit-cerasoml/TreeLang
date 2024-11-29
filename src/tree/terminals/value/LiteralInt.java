@@ -1,7 +1,6 @@
 package tree.terminals.value;
 
-import editor.model.IStringStackElement;
-import editor.model.StringStackTerminal;
+import editor.model.TextCollection;
 import model.type.Type;
 import tree.DefaultNode;
 import treemodel.Primitives;
@@ -24,7 +23,7 @@ public class LiteralInt extends DefaultNode implements IValue {
     }
 
     @Override
-    public IStringStackElement createStringStack() {
-        return new StringStackTerminal(this.toString(), Color.CYAN, this);
+    public void createText(TextCollection collection) {
+        collection.addText(this.toString(), Color.CYAN, this);
     }
 }

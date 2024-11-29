@@ -1,7 +1,6 @@
 package tree.contructs;
 
-import editor.model.IStringStackElement;
-import editor.model.StringStack;
+import editor.model.TextCollection;
 import tree.DefaultNode;
 import tree.INode;
 
@@ -11,15 +10,13 @@ public class Body extends DefaultNode implements INode {
     ArrayList<INode> contents = new ArrayList<>();
 
     @Override
-    public IStringStackElement createStringStack() {
-        StringStack ss = new StringStack();
-        ss.add("{\n", this);
+    public void createText(TextCollection collection) {
+        collection.addText("{\n", this);
         for(INode n : contents){
-            ss.add("\t", this);
-            ss.add(n.createStringStack());
+            collection.addText("\t", this);
+            collection.addText(n);
         }
-        ss.add("}\n", this);
-        return ss;
+        collection.addText("}\n", this);
     }
 
     public void append(INode n){

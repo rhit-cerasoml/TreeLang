@@ -1,4 +1,4 @@
-import editor.model.IStringStackElement;
+import editor.model.TextCollection;
 import editor.ui.Surface;
 import model.Model;
 import tree.terminals.value.LiteralInt;
@@ -8,7 +8,6 @@ import tree.contructs.Body;
 import tree.contructs.Declaration;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,7 +23,7 @@ public class Main {
         a.setLHS(s);
         a.setRHS(lit);
         body.append(a);
-        IStringStackElement test = body.createStringStack();
+        TextCollection test = body.createText();
         System.out.println(test);
 
         Model model = new Model();
