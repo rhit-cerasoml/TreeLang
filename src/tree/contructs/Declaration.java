@@ -1,5 +1,6 @@
 package tree.contructs;
 
+import editor.model.IStringStackElement;
 import editor.model.StringStack;
 import tree.DefaultNode;
 import tree.INode;
@@ -11,7 +12,7 @@ public class Declaration extends DefaultNode implements INode {
     INode symbol;
 
     @Override
-    public StringStack createStringStack() {
+    public IStringStackElement createStringStack() {
         StringStack ss = new StringStack();
         ss.add(type.createStringStack());
         ss.add(" ", this);

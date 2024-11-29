@@ -1,7 +1,8 @@
 package tree.contructs;
 
+import editor.model.IStringStackElement;
 import editor.model.StringStack;
-import editor.model.StringTerminal;
+import editor.model.StringStackTerminal;
 import tree.*;
 import tree.terminals.symbol.ISymbol;
 import tree.terminals.symbol.IncompleteSymbol;
@@ -16,10 +17,10 @@ public class Assignment extends DefaultNode implements INode {
     IValue RHS;
 
     @Override
-    public StringStack createStringStack() {
+    public IStringStackElement createStringStack() {
         StringStack ss = new StringStack();
         ss.add(LHS.createStringStack());
-        ss.add(new StringTerminal(" = ", Color.GRAY, this));
+        ss.add(new StringStackTerminal(" = ", Color.GRAY, this));
         ss.add(RHS.createStringStack());
         ss.add("\n", this);
         return ss;

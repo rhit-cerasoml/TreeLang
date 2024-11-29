@@ -1,7 +1,7 @@
 package tree.terminals.value;
 
-import editor.model.StringStack;
-import editor.model.StringTerminal;
+import editor.model.IStringStackElement;
+import editor.model.StringStackTerminal;
 import model.type.Type;
 import tree.DefaultNode;
 import treemodel.Primitives;
@@ -10,8 +10,8 @@ import java.awt.*;
 
 public class IncompleteValue extends DefaultNode implements IValue {
     @Override
-    public StringStack createStringStack() {
-        return new StringTerminal("", Color.RED, this);
+    public IStringStackElement createStringStack() {
+        return new StringStackTerminal("", Color.RED, this);
     }
 
     @Override

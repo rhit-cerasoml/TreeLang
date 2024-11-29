@@ -1,12 +1,10 @@
 package tree;
 
-import editor.model.StringStack;
-
-import java.text.AttributedString;
+import editor.model.IStringStackElement;
 
 public interface INode {
 
-    StringStack createStringStack();
+    IStringStackElement createStringStack();
     INode getParent();
     boolean hasParent();
 

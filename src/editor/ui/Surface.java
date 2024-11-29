@@ -33,9 +33,10 @@ public class Surface extends JPanel {
         //AttributedString content = new AttributedString(model.buildText());
         Font font = new Font("Segoe UI", Font.PLAIN, 106);
 
-        StringStack.StringStackCharacterIterator iter = model.getStringStack().getIterator();
-        iter.setFont(font);
-
+        //------------
+        //StringStack.StringStackCharacterIterator iter = model.getStringStack().getIterator();
+        //iter.setFont(font);
+        //------------
 
         //TextLayout layout = new TextLayout(model.getStringStack().getIterator(), g2d.getFontRenderContext());
 
@@ -66,13 +67,15 @@ public class Surface extends JPanel {
 //            }
 //        }
 
-        g2d.drawString(iter, 0, g.getFontMetrics(font).getAscent());
-        int l = 0;
-        while(iter.hasNextLine()){
-            iter.nextLine();
-            l++;
-            g2d.drawString(iter, 0, g.getFontMetrics(font).getAscent() + g.getFontMetrics(font).getHeight() * l);
-        }
+
+        //------------------------------------------------------------
+//        g2d.drawString(iter, 0, g.getFontMetrics(font).getAscent());
+//        int l = 0;
+//        while(iter.hasNextLine()){
+//            iter.nextLine();
+//            l++;
+//            g2d.drawString(iter, 0, g.getFontMetrics(font).getAscent() + g.getFontMetrics(font).getHeight() * l);
+//        }
 
     }
 

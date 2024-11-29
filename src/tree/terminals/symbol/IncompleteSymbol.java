@@ -1,7 +1,7 @@
 package tree.terminals.symbol;
 
-import editor.model.StringStack;
-import editor.model.StringTerminal;
+import editor.model.IStringStackElement;
+import editor.model.StringStackTerminal;
 import tree.DefaultNode;
 
 import java.awt.*;
@@ -9,7 +9,7 @@ import java.awt.*;
 public class IncompleteSymbol extends DefaultNode implements ISymbol {
 
     @Override
-    public StringStack createStringStack() {
-        return new StringTerminal("", Color.RED, this);
+    public IStringStackElement createStringStack() {
+        return new StringStackTerminal("", Color.RED, this);
     }
 }

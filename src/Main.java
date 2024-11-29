@@ -1,3 +1,4 @@
+import editor.model.IStringStackElement;
 import editor.ui.Surface;
 import model.Model;
 import tree.terminals.value.LiteralInt;
@@ -23,7 +24,8 @@ public class Main {
         a.setLHS(s);
         a.setRHS(lit);
         body.append(a);
-        System.out.println(body.createStringStack());
+        IStringStackElement test = body.createStringStack();
+        System.out.println(test);
 
         Model model = new Model();
         model.walkTree(body);

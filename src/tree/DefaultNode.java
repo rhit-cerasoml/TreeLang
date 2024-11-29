@@ -1,15 +1,15 @@
 package tree;
 
-import editor.model.StringStack;
-import editor.model.StringTerminal;
+import editor.model.IStringStackElement;
+import editor.model.StringStackTerminal;
 
 import java.awt.*;
 
 public abstract class DefaultNode implements INode {
     private static final INode ROOT = new DefaultNode() {
         @Override
-        public StringStack createStringStack() {
-            return new StringTerminal("If you're seeing this please submit an issue report", Color.RED, this);
+        public IStringStackElement createStringStack() {
+            return new StringStackTerminal("If you're seeing this please submit an issue report", Color.RED, this);
         }
     };
     INode parent = ROOT;

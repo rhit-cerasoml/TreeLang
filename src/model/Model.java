@@ -1,5 +1,6 @@
 package model;
 
+import editor.model.IStringStackElement;
 import editor.model.StringStack;
 import model.type.Type;
 import tree.INode;
@@ -24,12 +25,12 @@ public class Model {
     public String buildText(){
         return root.createStringStack().toString();
     }
+//
+//    public void applyAttributes(AttributedString content){
+//        root.createStringStack().applyAttributes(content);
+//    }
 
-    public void applyAttributes(AttributedString content){
-        root.createStringStack().applyAttributes(content);
-    }
-
-    public StringStack getStringStack(){
+    public IStringStackElement getStringStack(){
         return root.createStringStack();
     }
 }
