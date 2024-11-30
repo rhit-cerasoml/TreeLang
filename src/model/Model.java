@@ -10,16 +10,20 @@ import java.text.AttributedString;
 import java.util.ArrayList;
 
 public class Model {
-    ArrayList<Type> types = new ArrayList<>();
-    Scope globalScope = new Scope();
-    public Model(){
+    private INode root;
+    private ArrayList<Type> types = new ArrayList<>();
+    private Scope globalScope = new Scope();
+    public Model(INode root){
         Primitives.populatePrimitiveTypes(types);
-
+        this.root = root;
     }
 
-    private INode root;
-    public void walkTree(INode root){
-        this.root = root;
+    public void lintWalk(){
+        lintWalk(root, globalScope);
+    }
+
+    public void lintWalk(INode node, Scope scope){
+
     }
 
     @Override

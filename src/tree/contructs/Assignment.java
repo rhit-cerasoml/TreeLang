@@ -8,8 +8,6 @@ import tree.terminals.symbol.Symbol;
 import tree.terminals.value.IValue;
 import tree.terminals.value.IncompleteValue;
 
-import java.awt.*;
-
 public class Assignment extends DefaultNode implements INode {
     ISymbol LHS;
     IValue RHS;
@@ -17,7 +15,7 @@ public class Assignment extends DefaultNode implements INode {
     @Override
     public void createText(TextCollection collection) {
         collection.addText(LHS);
-        collection.addText(" = ", Color.GRAY, this);
+        collection.addText(" = ", this);
         collection.addText(RHS);
         collection.addText("\n", this);
     }

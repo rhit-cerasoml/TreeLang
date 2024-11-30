@@ -8,6 +8,7 @@ import tree.contructs.Body;
 import tree.contructs.Declaration;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,12 +27,12 @@ public class Main {
         TextCollection test = body.createText();
         System.out.println(test);
 
-        Model model = new Model();
-        model.walkTree(body);
+        Model model = new Model(body);
+        model.lintWalk();
 
         JFrame frame = new JFrame("Editor");
         frame.add(new Surface(model));
-        frame.setSize(620, 190);
+        frame.setSize(620, 500);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

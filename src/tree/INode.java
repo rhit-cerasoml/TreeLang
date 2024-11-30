@@ -8,5 +8,6 @@ public interface INode {
     void createText(TextCollection collection);
     INode getParent();
     boolean hasParent();
+    
 
 }
