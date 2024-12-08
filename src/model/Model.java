@@ -12,17 +12,16 @@ import java.util.ArrayList;
 public class Model {
     private INode root;
     private ArrayList<Type> types = new ArrayList<>();
-    private Scope globalScope = new Scope();
     public Model(INode root){
         Primitives.populatePrimitiveTypes(types);
         this.root = root;
     }
 
     public void lintWalk(){
-        lintWalk(root, globalScope);
+        lintWalk(root);
     }
 
-    public void lintWalk(INode node, Scope scope){
+    public void lintWalk(INode node){
 
     }
 
