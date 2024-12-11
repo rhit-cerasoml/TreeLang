@@ -4,17 +4,16 @@ import model.Model;
 import tree.terminals.value.LiteralInt;
 import tree.terminals.symbol.Symbol;
 import tree.contructs.Assignment;
-import tree.contructs.Body;
-import tree.contructs.Declaration;
+import tree.contructs.bodies.Body;
+import tree.contructs.declarations.VariableDeclaration;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
         Body body = new Body();
         Body b2 = new Body();
-        Declaration dec = new Declaration();
+        VariableDeclaration dec = new VariableDeclaration();
         Symbol i = new Symbol("int");
         Symbol s = new Symbol("x");
         body.append(dec);

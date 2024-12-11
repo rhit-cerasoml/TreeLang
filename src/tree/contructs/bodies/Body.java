@@ -1,4 +1,4 @@
-package tree.contructs;
+package tree.contructs.bodies;
 
 import editor.model.TextCollection;
 import tree.DefaultNode;

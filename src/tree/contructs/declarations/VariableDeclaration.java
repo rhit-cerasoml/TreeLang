@@ -1,14 +1,17 @@
-package tree.contructs;
+package tree.contructs.declarations;
 
 import editor.model.TextCollection;
+import model.type.Type;
 import tree.DefaultNode;
 import tree.INode;
+import tree.terminals.symbol.ISymbol;
 import tree.terminals.symbol.IncompleteSymbol;
 import tree.terminals.symbol.Symbol;
+import treemodel.Primitives;
 
-public class Declaration extends DefaultNode implements INode {
-    INode type;
-    INode symbol;
+public class VariableDeclaration extends DefaultNode implements IDeclaration {
+    ISymbol type;
+    ISymbol symbol;
 
     @Override
     public void createText(TextCollection collection) {
@@ -18,7 +21,7 @@ public class Declaration extends DefaultNode implements INode {
         collection.addText("\n", this);
     }
 
-    public Declaration(){
+    public VariableDeclaration(){
         type = new IncompleteSymbol();
         symbol = new IncompleteSymbol();
     }
@@ -36,5 +39,9 @@ public class Declaration extends DefaultNode implements INode {
     protected boolean resolveMove(INode from, INode to) {
         System.out.println("TODO: declaration move");
         return false;
+    }
+
+    public Type resolveDeclaredType(){
+        return type instanceof IncompleteSymbol ? Primitives.PRIMITIVE_UNRESOLVED : type.resolveType();
     }
 }
