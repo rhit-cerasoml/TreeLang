@@ -3,6 +3,7 @@ package tree.terminals.value;
 import editor.model.TextCollection;
 import model.type.Type;
 import tree.DefaultNode;
+import tree.INode;
 import treemodel.Primitives;
 
 import java.awt.*;
@@ -25,5 +26,10 @@ public class LiteralInt extends DefaultNode implements IValue {
     @Override
     public void createText(TextCollection collection) {
         collection.addText(this.toString(), Color.CYAN, this);
+    }
+
+    @Override
+    protected boolean resolveMove(INode from, INode to) {
+        return true;
     }
 }

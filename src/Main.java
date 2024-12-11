@@ -13,6 +13,7 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args) {
         Body body = new Body();
+        Body b2 = new Body();
         Declaration dec = new Declaration();
         Symbol i = new Symbol("int");
         Symbol s = new Symbol("x");
@@ -24,6 +25,7 @@ public class Main {
         a.setLHS(s);
         a.setRHS(lit);
         body.append(a);
+        body.append(b2);
         TextCollection test = body.createText();
         System.out.println(test);
 

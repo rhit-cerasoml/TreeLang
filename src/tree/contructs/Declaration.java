@@ -28,6 +28,13 @@ public class Declaration extends DefaultNode implements INode {
     }
 
     public void setSymbol(Symbol s){
+        // ASSIGN PARENT
         this.symbol = s;
+    }
+
+    @Override
+    protected boolean resolveMove(INode from, INode to) {
+        System.out.println("TODO: declaration move");
+        return false;
     }
 }

@@ -32,4 +32,10 @@ public class Assignment extends DefaultNode implements INode {
     public void setRHS(IValue s){
         this.RHS = s;
     }
+
+    @Override
+    protected boolean resolveMove(INode from, INode to) {
+        System.out.println("TODO: assignment move");
+        return false;
+    }
 }

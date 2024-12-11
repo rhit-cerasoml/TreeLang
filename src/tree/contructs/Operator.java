@@ -31,4 +31,9 @@ public class Operator extends DefaultNode implements INode, IValue {
         System.out.println("FIX THIS DUMMY");
         return null;//Primitives.PRIMITIVE_UNRESOLVED;
     }
+
+    @Override
+    protected boolean resolveMove(INode from, INode to) {
+        return false;
+    }
 }

@@ -11,6 +11,9 @@ import java.util.ArrayList;
 public class TextCollection {
     private ArrayList<ArrayList<TextNode>> contents = new ArrayList<>();
     private Font font;
+
+    private int indentationLevel = 0;
+
     public TextCollection(){
         contents.add(new ArrayList<>());
     }
@@ -26,21 +29,32 @@ public class TextCollection {
         addText(s, EditorSettings.DEFAULT_TEXT_COLOR, accessor);
     }
     public void addText(String s, Color c, INode accessor){
-        if(s.length() == 0){
+        if(s.isEmpty()){
             return;
         }
         String[] lines = s.split("\n", -1);
         addSingleLineText(lines[0], c, accessor);
-        for(int i = 1; i < lines.length; i++){
+        for (int i = 1; i < lines.length; i++) {
             contents.add(new ArrayList<>());
             addSingleLineText(lines[i], c, accessor);
         }
     }
     private void addSingleLineText(String s, Color c, INode accessor){
-        if(s.length() == 0){
+        if(s.isEmpty()){
             return;
         }
-        contents.get(contents.size() - 1).add(new TextNode(s.replace("\t", EditorSettings.SPACES_PER_INDENT), c, accessor));
+        String formatted = s.replace("\t", EditorSettings.SPACES_PER_INDENT);
+        formatted = contents.get(contents.size() - 1).isEmpty() ? addPrefix(formatted) : formatted;
+        contents.get(contents.size() - 1).add(new TextNode(formatted, c, accessor));
+    }
+
+    private String addPrefix(String s){
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < indentationLevel; i++){
+            sb.append(EditorSettings.SPACES_PER_INDENT);
+        }
+        sb.append(s);
+        return sb.toString();
     }
 
     @Override
@@ -86,5 +100,13 @@ public class TextCollection {
         for (TextNode node : line) {
             node.buildString(sb);
         }
+    }
+
+    public void pushIndent(){
+        indentationLevel++;
+    }
+
+    public void popIndent(){
+        indentationLevel--;
     }
 }
