@@ -4,6 +4,7 @@ import editor.model.TextCollection;
 import model.type.Type;
 import tree.DefaultNode;
 import tree.INode;
+import tree.contructs.declarations.IDeclaration;
 import tree.contructs.declarations.VariableDeclaration;
 import treemodel.Primitives;
 
@@ -27,8 +28,14 @@ public class IncompleteSymbol extends DefaultNode implements ISymbol {
     }
 
 
+    IDeclaration declaration;
     @Override
-    public VariableDeclaration getDeclaration() {
-        return null;
+    public IDeclaration getDeclaration() {
+        return declaration;
+    }
+
+    @Override
+    public void setDeclaration(IDeclaration declaration) {
+        this.declaration = declaration;
     }
 }

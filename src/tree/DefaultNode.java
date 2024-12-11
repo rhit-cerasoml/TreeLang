@@ -26,10 +26,12 @@ public abstract class DefaultNode implements INode {
         return collection;
     }
 
-    public void setParent(INode n){
+    public boolean setParent(INode n){
         if(this.parent == ROOT || resolveMove(this.parent, n)) {
             this.parent = n;
+            return true;
         }
+        return false;
     }
 
     protected abstract boolean resolveMove(INode from, INode to);

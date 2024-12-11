@@ -9,6 +9,8 @@ import tree.terminals.symbol.IncompleteSymbol;
 import tree.terminals.symbol.Symbol;
 import treemodel.Primitives;
 
+import java.awt.*;
+
 public class VariableDeclaration extends DefaultNode implements IDeclaration {
     ISymbol type;
     ISymbol symbol;
@@ -31,7 +33,7 @@ public class VariableDeclaration extends DefaultNode implements IDeclaration {
     }
 
     public void setSymbol(Symbol s){
-        // ASSIGN PARENT
+        s.setDeclaration(this);
         this.symbol = s;
     }
 
@@ -43,5 +45,10 @@ public class VariableDeclaration extends DefaultNode implements IDeclaration {
 
     public Type resolveDeclaredType(){
         return type instanceof IncompleteSymbol ? Primitives.PRIMITIVE_UNRESOLVED : type.resolveType();
+    }
+
+    @Override
+    public Color getSymbolTypeColor() {
+        return Color.orange;
     }
 }

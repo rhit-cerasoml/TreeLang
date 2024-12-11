@@ -1,6 +1,7 @@
 import editor.model.TextCollection;
 import editor.ui.Surface;
 import model.Model;
+import tree.contructs.declarations.TypeDeclaration;
 import tree.terminals.value.LiteralInt;
 import tree.terminals.symbol.Symbol;
 import tree.contructs.Assignment;
@@ -13,6 +14,9 @@ public class Main {
     public static void main(String[] args) {
         Body body = new Body();
         Body b2 = new Body();
+        TypeDeclaration typedef = new TypeDeclaration();
+        typedef.setName(new Symbol("testClass"));
+        body.append(typedef);
         VariableDeclaration dec = new VariableDeclaration();
         Symbol i = new Symbol("int");
         Symbol s = new Symbol("x");

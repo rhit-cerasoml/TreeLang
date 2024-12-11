@@ -8,7 +8,7 @@ public interface INode {
     TextCollection createText();
     void createText(TextCollection collection);
 
-    void setParent(INode n);
+    boolean setParent(INode n);
     INode getParent();
     boolean hasParent();
     
