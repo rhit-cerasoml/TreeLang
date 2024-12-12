@@ -7,6 +7,7 @@ import tree.terminals.symbol.Symbol;
 import tree.contructs.Assignment;
 import tree.contructs.bodies.Body;
 import tree.contructs.declarations.VariableDeclaration;
+import treemodel.Primitives;
 
 import javax.swing.*;
 
@@ -19,6 +20,7 @@ public class Main {
         body.append(typedef);
         VariableDeclaration dec = new VariableDeclaration();
         Symbol i = new Symbol("int");
+        i.setDeclaration(Primitives.PRIMITIVE_INT_SOURCE);
         Symbol s = new Symbol("x");
         body.append(dec);
         dec.setType(i);

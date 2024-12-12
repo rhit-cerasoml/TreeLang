@@ -1,7 +1,5 @@
 package model.type;
 
-import model.type.Type;
-
 public class PrimitiveType extends Type {
     String typeName;
     public PrimitiveType(String typeName){
@@ -11,5 +9,20 @@ public class PrimitiveType extends Type {
     @Override
     public String toString() {
         return typeName;
+    }
+
+    @Override
+    public boolean isFunctionType() {
+        return false;
+    }
+
+    @Override
+    public boolean isValueType() {
+        return false;
+    }
+
+    @Override
+    public boolean isClassType() {
+        return true;
     }
 }

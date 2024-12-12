@@ -1,7 +1,5 @@
 package model.type;
 
-import model.type.Type;
-
 public class TypeUnresolved extends Type {
     private String name;
     public TypeUnresolved(String name){
@@ -11,5 +9,20 @@ public class TypeUnresolved extends Type {
     @Override
     public String toString() {
         return "?" + name;
+    }
+
+    @Override
+    public boolean isFunctionType() {
+        return false;
+    }
+
+    @Override
+    public boolean isValueType() {
+        return false;
+    }
+
+    @Override
+    public boolean isClassType() {
+        return false;
     }
 }
