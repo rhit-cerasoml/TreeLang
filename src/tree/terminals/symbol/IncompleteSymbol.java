@@ -25,7 +25,6 @@ public class IncompleteSymbol extends DefaultNode implements ISymbol {
         return null;
     }
 
-
     ExpressionVariableDeclaration declaration;
     @Override
     public ExpressionVariableDeclaration getDeclaration() {

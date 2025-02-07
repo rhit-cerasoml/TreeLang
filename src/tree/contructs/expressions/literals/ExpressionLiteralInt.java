@@ -1,6 +1,7 @@
 package tree.contructs.expressions.literals;
 
 import editor.model.TextCollection;
+import model.type.primitives.Primitives;
 import tree.DefaultNode;
 import tree.INode;
 import tree.terminals.expression.IExpression;
@@ -15,7 +16,7 @@ public class ExpressionLiteralInt extends DefaultNode implements IExpression {
     }
     @Override
     public ITypeProvider resolveType() {
-        return null;
+        return Primitives.PRIMITIVE_INT;
     }
 
     @Override
@@ -30,6 +31,6 @@ public class ExpressionLiteralInt extends DefaultNode implements IExpression {
 
     @Override
     public boolean resolveMove(INode from, INode to) {
-        return true;
+        return false;
     }
 }

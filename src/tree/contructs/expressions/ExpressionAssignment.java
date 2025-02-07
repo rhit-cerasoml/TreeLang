@@ -25,7 +25,7 @@ public class ExpressionAssignment extends DefaultNode implements INode {
         RHS = new IncompleteExpression();
     }
 
-    public void setLHS(Symbol s){
+    public void setLHS(ISymbol s){
         this.LHS = s;
     }
 

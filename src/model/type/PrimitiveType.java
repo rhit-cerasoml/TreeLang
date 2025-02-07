@@ -1,7 +1,9 @@
 package model.type;
 
-public class PrimitiveType extends Type {
-    String typeName;
+import tree.terminals.type.ITypeProvider;
+
+public class PrimitiveType extends Type implements ITypeProvider {
+    private String typeName;
     public PrimitiveType(String typeName){
         this.typeName = typeName;
     }
@@ -11,4 +13,8 @@ public class PrimitiveType extends Type {
         return typeName;
     }
 
+    @Override
+    public Type resolve() {
+        return this;
+    }
 }

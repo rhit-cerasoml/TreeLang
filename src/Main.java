@@ -1,6 +1,7 @@
 import editor.model.TextCollection;
 import editor.ui.Surface;
 import model.Model;
+import model.type.primitives.Primitives;
 import tree.contructs.expressions.ExpressionVariableDeclaration;
 import tree.contructs.expressions.literals.ExpressionLiteralInt;
 import tree.terminals.symbol.Symbol;
@@ -14,29 +15,12 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args) {
         Body body = new Body();
-        //TypeDeclaration typedef = new TypeDeclaration();
-        //typedef.setName(new Symbol("testClass"));
-        //body.append(typedef);
-        ExpressionVariableDeclaration dec = new ExpressionVariableDeclaration() {
-            @Override
-            public ITypeProvider resolveDeclaredType() {
-                return null;
-            }
-
-            @Override
-            public Color getSymbolTypeColor() {
-                return null;
-            }
-        };
-        //i.setDeclaration(Primitives.PRIMITIVE_INT_SOURCE);
-        Symbol s = new Symbol("x");
-        //body.append(dec);
-        //dec.setType(i);
-        //dec.setSymbol(s);
+        ExpressionVariableDeclaration dec = new ExpressionVariableDeclaration(Primitives.PRIMITIVE_INT, "x");
         ExpressionLiteralInt lit = new ExpressionLiteralInt(5);
         ExpressionAssignment a = new ExpressionAssignment();
-        a.setLHS(s);
+        a.setLHS(dec.getSymbol());
         a.setRHS(lit);
+        body.append(dec);
         body.append(a);
         TextCollection test = body.createText();
         System.out.println(test);
