@@ -26,7 +26,7 @@ public class Body extends DefaultNode implements INode {
     }
 
     @Override
-    protected boolean resolveMove(INode from, INode to) {
+    public boolean resolveMove(INode from, INode to) {
         System.out.println("TODO: Body move");
         return false;
     }

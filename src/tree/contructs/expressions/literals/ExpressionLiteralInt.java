@@ -1,21 +1,21 @@
-package tree.terminals.value;
+package tree.contructs.expressions.literals;
 
 import editor.model.TextCollection;
-import model.type.Type;
 import tree.DefaultNode;
 import tree.INode;
-import treemodel.Primitives;
+import tree.terminals.expression.IExpression;
+import tree.terminals.type.ITypeProvider;
 
 import java.awt.*;
 
-public class LiteralInt extends DefaultNode implements IValue {
+public class ExpressionLiteralInt extends DefaultNode implements IExpression {
     private int value;
-    public LiteralInt(int value){
+    public ExpressionLiteralInt(int value){
         this.value = value;
     }
     @Override
-    public Type resolveType() {
-        return Primitives.PRIMITIVE_INT;
+    public ITypeProvider resolveType() {
+        return null;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class LiteralInt extends DefaultNode implements IValue {
     }
 
     @Override
-    protected boolean resolveMove(INode from, INode to) {
+    public boolean resolveMove(INode from, INode to) {
         return true;
     }
 }

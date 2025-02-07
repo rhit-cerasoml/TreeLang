@@ -1,40 +1,40 @@
-package tree.contructs;
+package tree.contructs.expressions;
 
 import editor.model.TextCollection;
 import tree.*;
 import tree.terminals.symbol.ISymbol;
 import tree.terminals.symbol.IncompleteSymbol;
 import tree.terminals.symbol.Symbol;
-import tree.terminals.value.IValue;
-import tree.terminals.value.IncompleteValue;
+import tree.terminals.expression.IExpression;
+import tree.terminals.expression.IncompleteExpression;
 
-public class Assignment extends DefaultNode implements INode {
+public class ExpressionAssignment extends DefaultNode implements INode {
     ISymbol LHS;
-    IValue RHS;
+    IExpression RHS;
 
     @Override
     public void createText(TextCollection collection) {
         collection.addText(LHS);
         collection.addText(" = ", this);
         collection.addText(RHS);
-        collection.addText("\n", this);
+        collection.addText(";\n", this);
     }
 
-    public Assignment(){
+    public ExpressionAssignment(){
         LHS = new IncompleteSymbol();
-        RHS = new IncompleteValue();
+        RHS = new IncompleteExpression();
     }
 
     public void setLHS(Symbol s){
         this.LHS = s;
     }
 
-    public void setRHS(IValue s){
+    public void setRHS(IExpression s){
         this.RHS = s;
     }
 
     @Override
-    protected boolean resolveMove(INode from, INode to) {
+    public boolean resolveMove(INode from, INode to) {
         System.out.println("TODO: assignment move");
         return false;
     }

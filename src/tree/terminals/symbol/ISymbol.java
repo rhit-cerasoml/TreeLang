@@ -1,12 +1,11 @@
 package tree.terminals.symbol;
 
-import tree.contructs.declarations.IDeclaration;
-import tree.contructs.declarations.VariableDeclaration;
-import tree.terminals.value.IValue;
+import tree.contructs.expressions.ExpressionVariableDeclaration;
+import tree.terminals.expression.IExpression;
 
-public interface ISymbol extends IValue {
+public interface ISymbol extends IExpression {
 
-    IDeclaration getDeclaration();
-    void setDeclaration(IDeclaration declaration);
+    ExpressionVariableDeclaration getDeclaration();
+    void setDeclaration(ExpressionVariableDeclaration declaration);
 
 }

@@ -11,18 +11,4 @@ public class PrimitiveType extends Type {
         return typeName;
     }
 
-    @Override
-    public boolean isFunctionType() {
-        return false;
-    }
-
-    @Override
-    public boolean isValueType() {
-        return false;
-    }
-
-    @Override
-    public boolean isClassType() {
-        return true;
-    }
 }

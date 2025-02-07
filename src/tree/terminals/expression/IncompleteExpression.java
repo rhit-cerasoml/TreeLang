@@ -1,26 +1,25 @@
-package tree.terminals.value;
+package tree.terminals.expression;
 
 import editor.model.TextCollection;
-import model.type.Type;
 import tree.DefaultNode;
 import tree.INode;
-import treemodel.Primitives;
+import tree.terminals.type.ITypeProvider;
 
 import java.awt.*;
 
-public class IncompleteValue extends DefaultNode implements IValue {
+public class IncompleteExpression extends DefaultNode implements IExpression {
     @Override
     public void createText(TextCollection collection) {
         collection.addText("", Color.RED, this);
     }
 
     @Override
-    public Type resolveType() {
-        return Primitives.PRIMITIVE_UNRESOLVED;
+    public ITypeProvider resolveType() {
+        return null;
     }
 
     @Override
-    protected boolean resolveMove(INode from, INode to) {
+    public boolean resolveMove(INode from, INode to) {
         return true;
     }
 }

@@ -11,6 +11,7 @@ public interface INode {
     boolean setParent(INode n);
     INode getParent();
     boolean hasParent();
-    
 
+
+    boolean resolveMove(INode from, INode to);
 }

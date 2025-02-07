@@ -8,7 +8,7 @@ import java.awt.*;
 public abstract class DefaultNode implements INode {
     private static final INode ROOT = new DefaultNode(){
         @Override
-        protected boolean resolveMove(INode from, INode to) {
+        public boolean resolveMove(INode from, INode to) {
             return false;
         }
 
@@ -33,8 +33,6 @@ public abstract class DefaultNode implements INode {
         }
         return false;
     }
-
-    protected abstract boolean resolveMove(INode from, INode to);
 
     @Override
     public INode getParent() {

@@ -1,12 +1,10 @@
 package tree.terminals.symbol;
 
 import editor.model.TextCollection;
-import model.type.Type;
 import tree.DefaultNode;
 import tree.INode;
-import tree.contructs.declarations.IDeclaration;
-import tree.contructs.declarations.VariableDeclaration;
-import treemodel.Primitives;
+import tree.contructs.expressions.ExpressionVariableDeclaration;
+import tree.terminals.type.ITypeProvider;
 
 import java.awt.*;
 
@@ -18,24 +16,24 @@ public class IncompleteSymbol extends DefaultNode implements ISymbol {
     }
 
     @Override
-    protected boolean resolveMove(INode from, INode to) {
+    public boolean resolveMove(INode from, INode to) {
         return true;
     }
 
     @Override
-    public Type resolveType() {
-        return Primitives.PRIMITIVE_UNRESOLVED;
+    public ITypeProvider resolveType() {
+        return null;
     }
 
 
-    IDeclaration declaration;
+    ExpressionVariableDeclaration declaration;
     @Override
-    public IDeclaration getDeclaration() {
+    public ExpressionVariableDeclaration getDeclaration() {
         return declaration;
     }
 
     @Override
-    public void setDeclaration(IDeclaration declaration) {
+    public void setDeclaration(ExpressionVariableDeclaration declaration) {
         this.declaration = declaration;
     }
 }

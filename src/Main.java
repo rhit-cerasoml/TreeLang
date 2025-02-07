@@ -1,41 +1,47 @@
 import editor.model.TextCollection;
 import editor.ui.Surface;
 import model.Model;
-import tree.contructs.declarations.TypeDeclaration;
-import tree.terminals.value.LiteralInt;
+import tree.contructs.expressions.ExpressionVariableDeclaration;
+import tree.contructs.expressions.literals.ExpressionLiteralInt;
 import tree.terminals.symbol.Symbol;
-import tree.contructs.Assignment;
+import tree.contructs.expressions.ExpressionAssignment;
 import tree.contructs.bodies.Body;
-import tree.contructs.declarations.VariableDeclaration;
-import treemodel.Primitives;
+import tree.terminals.type.ITypeProvider;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
         Body body = new Body();
-        Body b2 = new Body();
-        TypeDeclaration typedef = new TypeDeclaration();
-        typedef.setName(new Symbol("testClass"));
-        body.append(typedef);
-        VariableDeclaration dec = new VariableDeclaration();
-        Symbol i = new Symbol("int");
-        i.setDeclaration(Primitives.PRIMITIVE_INT_SOURCE);
+        //TypeDeclaration typedef = new TypeDeclaration();
+        //typedef.setName(new Symbol("testClass"));
+        //body.append(typedef);
+        ExpressionVariableDeclaration dec = new ExpressionVariableDeclaration() {
+            @Override
+            public ITypeProvider resolveDeclaredType() {
+                return null;
+            }
+
+            @Override
+            public Color getSymbolTypeColor() {
+                return null;
+            }
+        };
+        //i.setDeclaration(Primitives.PRIMITIVE_INT_SOURCE);
         Symbol s = new Symbol("x");
-        body.append(dec);
-        dec.setType(i);
-        dec.setSymbol(s);
-        LiteralInt lit = new LiteralInt(5);
-        Assignment a = new Assignment();
+        //body.append(dec);
+        //dec.setType(i);
+        //dec.setSymbol(s);
+        ExpressionLiteralInt lit = new ExpressionLiteralInt(5);
+        ExpressionAssignment a = new ExpressionAssignment();
         a.setLHS(s);
         a.setRHS(lit);
         body.append(a);
-        body.append(b2);
         TextCollection test = body.createText();
         System.out.println(test);
 
         Model model = new Model(body);
-        model.lintWalk();
 
         JFrame frame = new JFrame("Editor");
         frame.add(new Surface(model));

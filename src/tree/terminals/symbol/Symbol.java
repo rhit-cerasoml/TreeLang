@@ -1,16 +1,15 @@
 package tree.terminals.symbol;
 
 import editor.model.TextCollection;
-import model.type.Type;
 import tree.DefaultNode;
 import tree.INode;
-import tree.contructs.declarations.IDeclaration;
-import tree.contructs.declarations.VariableDeclaration;
+import tree.contructs.expressions.ExpressionVariableDeclaration;
+import tree.terminals.type.ITypeProvider;
 
 import java.awt.*;
 
 public class Symbol extends DefaultNode implements ISymbol {
-    IDeclaration declaration;
+    ExpressionVariableDeclaration declaration;
     String name;
     public Symbol(String name){
         this.name = name;
@@ -23,23 +22,23 @@ public class Symbol extends DefaultNode implements ISymbol {
     }
 
     @Override
-    protected boolean resolveMove(INode from, INode to) {
+    public boolean resolveMove(INode from, INode to) {
         System.out.println("TODO: symbol move");
         return false;
     }
 
     @Override
-    public Type resolveType() {
+    public ITypeProvider resolveType() {
         return getDeclaration().resolveDeclaredType();
     }
 
     @Override
-    public IDeclaration getDeclaration() {
+    public ExpressionVariableDeclaration getDeclaration() {
         return declaration;
     }
 
     @Override
-    public void setDeclaration(IDeclaration declaration) {
+    public void setDeclaration(ExpressionVariableDeclaration declaration) {
         this.declaration = declaration;
     }
 
